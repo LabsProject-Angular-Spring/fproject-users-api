@@ -1,10 +1,10 @@
 package labsproject.api.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import labsproject.api.entity.User;
 import labsproject.api.repository.IUserRepository;
 import labsproject.api.service.IUserService;
@@ -46,6 +46,18 @@ public class UserService implements IUserService{
 			}			
 		}
 		return new User();
+	}
+	
+	@Override
+	public List<User> getByUserType(Integer id){
+		List<User> UsersType = new ArrayList<User>();
+		List<User> AllUsers= (List<User>) userRepository.findAll();
+		for(User user: AllUsers) {
+			if(user.getUserType() == id) {
+				UsersType.add(user);
+			}
+		}
+		return UsersType;
 	}
 
 }

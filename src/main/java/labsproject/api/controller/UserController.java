@@ -26,6 +26,11 @@ public class UserController {
 		return userService.getAllList();
 	}
 	
+	@GetMapping("/userstype/{id}")
+	public Iterable<User> getByUserType(@PathVariable Integer id){
+		return userService.getByUserType(id);
+	}
+	
 	@GetMapping("/{id}")
 	public User getById(@PathVariable Long id) {
 		return userService.getById(id);
