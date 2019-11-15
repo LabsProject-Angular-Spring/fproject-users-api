@@ -72,7 +72,7 @@ public class UserController {
 			return "Error: "+ex;	
 		}			
 	}
-	@PostMapping(path="/login", consumes = {"application/json"})
+	@PostMapping(path="/login", produces = {"application/json"}, consumes = {"application/json"})
 	public User Login (@RequestBody Map<String, Object> json) {		
 
 		return userService.Login(json.get("username").toString(), json.get("password").toString());			
